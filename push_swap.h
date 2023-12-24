@@ -34,7 +34,6 @@ typedef struct t_stack_node
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
 }						t_stack_node;
-void					create_stack(t_stack_node *a, char **argv,
-							bool is_argc_2);
+void					create_stack(t_stack_node **a, char **argv);
 
 #endif

@@ -19,33 +19,18 @@ int	push_swap(char *num_list)
 }
 int	main(int argc, char *argv[])
 {
-	int				i;
 	t_stack_node	*a;
 
-	a = NULL;
-	i = 0;
+	a = malloc((sizeof(a)));
+	a->value = 1;
 	if (argc < 1 || (argc >= 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
 	{
-		// push_swap(argv[1]);
 		argv = ft_split(argv[1], ' ');
-		while (argv[i])
-		{
-			printf("argv : %s\n", argv[i]);
-			i++;
-		}
+		create_stack(&a, argv);
 	}
 	else
-		create_stack(a, argv + 1, argc == 2);
-	// else
-	// {
-	// 	i = 1;
-	// 	while (argv[i])
-	// 	{
-	// 		printf("original argv %s\n", argv[i]);
-	// 		i++;
-	// 	}
-	// }
+		create_stack(&a, argv + 1);
 	return (1);
 }
