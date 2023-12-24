@@ -1,15 +1,36 @@
 
 #include "push_swap.h"
 
-void	create_stack(t_stack_node **a, char **argv)
+bool	create_stack(t_stack_node **a, char **argv)
 {
-	int	i;
+	int				i;
+	t_stack_node	*node;
+	bool			no_digit;
 
+	no_digit = false;
 	i = 0;
-	printf("value A : %p\n", (void *)a);
+	printf("value A : %d\n", *(char *)a);
 	while (argv[i])
 	{
-		printf("argv : %s\n", argv[i]);
+		node = malloc(sizeof(node));
+		if (!ft_isdigit((int)argv[i][0]))
+		{
+			no_digit = false;
+			break ;
+		}
+		else
+		{
+			printf("argv : %s\n", argv[i]);
+			node = ft_stacknew(ft_atoi(argv[i]));
+			// and add it to big list
+			printf("NODE INFO %d\n", node->value);
+			ft_stackadd_front(a, node);
+			no_digit = true;
+		}
+		// printf("Final A : %s\n ", *((char *)a));
+		free(node);
 		i++;
 	}
+	printf("IS DIGIT %d\n", no_digit);
+	return (no_digit);
 }

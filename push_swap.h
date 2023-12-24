@@ -22,7 +22,7 @@
 # include <string.h>
 # include <unistd.h>
 
-typedef struct t_stack_node
+typedef struct s_stack_node
 {
 	int					value;
 	int					current_position;
@@ -34,6 +34,10 @@ typedef struct t_stack_node
 	struct s_stack_node	*next;
 	struct s_stack_node	*prev;
 }						t_stack_node;
-void					create_stack(t_stack_node **a, char **argv);
+
+bool					create_stack(t_stack_node **a, char **argv);
+t_stack_node			*ft_stacknew(int value);
+void					ft_stackadd_front(t_stack_node **stack,
+							t_stack_node *new);
 
 #endif
