@@ -39,6 +39,6 @@ bool					create_stack(t_stack_node **a, char **argv);
 t_stack_node			*ft_stacknew(int value);
 void					ft_stackadd_front(t_stack_node **stack,
 							t_stack_node *new);
-t_stack_node			*ft_stacklast(t_stack_node *stack);
+t_stack_node			*ft_stacklast(t_stack_node **stack);
 
 #endif
