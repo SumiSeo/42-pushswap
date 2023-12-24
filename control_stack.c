@@ -34,3 +34,11 @@ void	ft_stackadd_front(t_stack_node **stack, t_stack_node *new)
 		*stack = new;
 	}
 }
+t_stack_node	*ft_stacklast(t_stack_node *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack->next != NULL)
+		stack = stack->next;
+	return (stack);
+}

@@ -27,7 +27,9 @@ bool	create_stack(t_stack_node **a, char **argv)
 			ft_stackadd_front(a, node);
 			no_digit = true;
 		}
-		// printf("Final A : %s\n ", *((char *)a));
+		// printf("last stack node: %d\n ", (int)ft_stacklast(a)->value);
+		// a is big node(a stack, how can I have access  ? );
+		printf("value A : %d\n", (int)ft_stacklast(a)->value);
 		free(node);
 		i++;
 	}
