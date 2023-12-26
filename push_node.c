@@ -1,33 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack.c                                     :+:      :+:    :+:   */
+/*   push_node.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 15:24:17 by sumseo            #+#    #+#             */
-/*   Updated: 2023/12/26 15:24:21 by sumseo           ###   ########.fr       */
+/*   Created: 2023/12/26 15:24:52 by sumseo            #+#    #+#             */
+/*   Updated: 2023/12/26 15:24:53 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	create_stack(t_stack_node **a, char **argv)
+static void	push(t_stack_node **a, t_stack_node **b)
 {
-	int				i;
-	long			nbr;
-	t_stack_node	*b;
+	int				temp;
+	t_stack_node	*new_node;
 
-	b = NULL;
-	i = 0;
-	while (argv[i])
+	printf("test1\n");
+	if (b == NULL)
+		return ;
+	printf("test2\n");
+	temp = (*b)->value;
+	append_stack(b, temp);
+	while ((*b)->next)
 	{
-		nbr = ft_atoi(argv[i]);
-		if (nbr > INT_MAX || nbr < INT_MIN)
-			printf("error");
-		append_stack(a, (int)nbr);
-		i++;
+		printf("B : %d\n", (*b)->value);
+		*b = (*b)->next;
 	}
-	sa(a);
-	pb(a, &b);
+}
+
+void	pa(t_stack_node **a, t_stack_node **b)
+{
+	printf("pa\n");
+	push(a, b);
+}
+
+void	pb(t_stack_node **a, t_stack_node **b)
+{
+	printf("pb\n");
+	push(b, a);
 }

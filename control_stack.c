@@ -23,8 +23,8 @@ t_stack_node	*find_last_node(t_stack_node *head)
 
 void	append_stack(t_stack_node **stack, int n)
 {
-	t_stack_node *node;
-	t_stack_node *last_node;
+	t_stack_node	*node;
+	t_stack_node	*last_node;
 
 	if (stack == NULL)
 		return ;
@@ -44,4 +44,36 @@ void	append_stack(t_stack_node **stack, int n)
 		last_node->next = node;
 		node->prev = last_node;
 	}
+}
+
+void	prepend_stack(t_stack_node **stack, int n)
+{
+	t_stack_node	*node;
+	t_stack_node	*last_node;
+
+	if (stack == NULL)
+		return ;
+	node = malloc(sizeof(t_stack_node));
+	if (node == NULL)
+		return ;
+	node->next = NULL;
+	node->value = n;
+	if (*stack == NULL)
+	{
+		*stack = node;
+		node->prev = NULL;
+	}
+	else
+	{
+		last_node = find_first_node(*stack);
+		last_node->next = node;
+		node->prev = last_node;
+	}
+}
+
+t_stack_node	*find_first_node(t_stack_node *head)
+{
+	if (head == NULL)
+		return (NULL);
+	return (head);
 }

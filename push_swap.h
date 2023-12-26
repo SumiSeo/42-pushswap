@@ -38,5 +38,10 @@ typedef struct s_stack_node
 void					create_stack(t_stack_node **a, char **argv);
 t_stack_node			*find_last_node(t_stack_node *head);
 void					append_stack(t_stack_node **stack, int n);
-
+void					sa(t_stack_node **a);
+void					sb(t_stack_node **b);
+void					pa(t_stack_node **a, t_stack_node **b);
+void					pb(t_stack_node **a, t_stack_node **b);
+t_stack_node			*find_first_node(t_stack_node *head);
+void					prepend_stack(t_stack_node **stack, int n);
 #endif

@@ -21,7 +21,9 @@ int	main(int argc, char *argv[])
 {
 	t_stack_node	*a;
 
+
 	a = NULL;
+
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
@@ -31,6 +33,6 @@ int	main(int argc, char *argv[])
 	}
 	else
 		create_stack(&a, argv + 1);
-	// free(a);
+
 	return (1);
 }

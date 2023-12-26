@@ -1,33 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack.c                                     :+:      :+:    :+:   */
+/*   swap_node.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 15:24:17 by sumseo            #+#    #+#             */
-/*   Updated: 2023/12/26 15:24:21 by sumseo           ###   ########.fr       */
+/*   Created: 2023/12/26 15:28:46 by sumseo            #+#    #+#             */
+/*   Updated: 2023/12/26 15:28:47 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	create_stack(t_stack_node **a, char **argv)
+static void	swap(t_stack_node **a)
 {
-	int				i;
-	long			nbr;
-	t_stack_node	*b;
+	int	temp;
+	int	i;
 
-	b = NULL;
 	i = 0;
-	while (argv[i])
+	while ((*a)->next && i < 1)
 	{
-		nbr = ft_atoi(argv[i]);
-		if (nbr > INT_MAX || nbr < INT_MIN)
-			printf("error");
-		append_stack(a, (int)nbr);
+		temp = (*a)->value;
+		(*a)->value = (*a)->next->value;
+		(*a)->next->value = temp;
 		i++;
 	}
-	sa(a);
-	pb(a, &b);
+	while ((*a)->next)
+	{
+		printf("A : %d\n", (*a)->value);
+		*a = (*a)->next;
+	}
+	printf("A : %d\n", (*a)->value);
+}
+void	sa(t_stack_node **a)
+{
+	printf("sa\n");
+	swap(a);
+}
+
+void	sb(t_stack_node **b)
+{
+	printf("sb\n");
+	swap(b);
 }
