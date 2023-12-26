@@ -29,5 +29,6 @@ void	create_stack(t_stack_node **a, char **argv)
 		i++;
 	}
 	sa(a);
+	printf("NEXT\n");
 	pb(a, &b);
 }

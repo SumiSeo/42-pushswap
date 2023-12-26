@@ -16,17 +16,18 @@ static void	push(t_stack_node **a, t_stack_node **b)
 {
 	int				temp;
 	t_stack_node	*new_node;
+	int				i;
 
-	printf("test1\n");
+	i = 0;
 	if (b == NULL)
 		return ;
-	printf("test2\n");
 	temp = (*b)->value;
-	append_stack(b, temp);
-	while ((*b)->next)
+	while ((*b)->next && i < 1)
 	{
+		prepend_stack(b, temp);
 		printf("B : %d\n", (*b)->value);
 		*b = (*b)->next;
+		i++;
 	}
 }
 

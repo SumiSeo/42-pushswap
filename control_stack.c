@@ -49,7 +49,6 @@ void	append_stack(t_stack_node **stack, int n)
 void	prepend_stack(t_stack_node **stack, int n)
 {
 	t_stack_node	*node;
-	t_stack_node	*last_node;
 
 	if (stack == NULL)
 		return ;
@@ -65,15 +64,7 @@ void	prepend_stack(t_stack_node **stack, int n)
 	}
 	else
 	{
-		last_node = find_first_node(*stack);
-		last_node->next = node;
-		node->prev = last_node;
+		node->next = *stack;
+		*stack = node;
 	}
-}
-
-t_stack_node	*find_first_node(t_stack_node *head)
-{
-	if (head == NULL)
-		return (NULL);
-	return (head);
 }
