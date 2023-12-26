@@ -9,7 +9,6 @@ bool	create_stack(t_stack_node **a, char **argv)
 
 	no_digit = false;
 	i = 0;
-	printf("value A : %d\n", *(char *)a);
 	while (argv[i])
 	{
 		node = malloc(sizeof(node));
@@ -22,15 +21,10 @@ bool	create_stack(t_stack_node **a, char **argv)
 		{
 			printf("argv : %s\n", argv[i]);
 			node = ft_stacknew(ft_atoi(argv[i]));
-			// and add it to big list
 			printf("NODE INFO %d\n", node->value);
 			ft_stackadd_front(a, node);
 			no_digit = true;
 		}
-		// printf("last stack node: %d\n ", (int)ft_stacklast(a)->value);
-		// a is big node(a stack, how can I have access  ? );
-		// below code has segmentation error
-		printf("value A : %d\n", ft_stacklast(a)->value);
 		free(node);
 		i++;
 	}
