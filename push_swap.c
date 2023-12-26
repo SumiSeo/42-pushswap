@@ -20,23 +20,17 @@ int	push_swap(char *num_list)
 int	main(int argc, char *argv[])
 {
 	t_stack_node	*a;
-	bool			is_error;
 
-	is_error = false;
-	a = malloc((sizeof(a)));
-	if (argc <= 1 || (argc >= 2 && !argv[1][0]))
+	a = NULL;
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		return (1);
 	else if (argc == 2)
 	{
 		argv = ft_split(argv[1], ' ');
-		is_error = create_stack(&a, argv);
+		create_stack(&a, argv);
 	}
 	else
-		is_error = create_stack(&a, argv + 1);
-	if (is_error == 0)
-	{
-		printf("error occured");
-	}
+		create_stack(&a, argv + 1);
 	// free(a);
 	return (1);
 }

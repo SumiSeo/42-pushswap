@@ -12,33 +12,36 @@
 
 #include "push_swap.h"
 
-t_stack_node	*ft_stacknew(int value)
+t_stack_node	*find_last_node(t_stack_node *head)
 {
-	t_stack_node	*head;
-
-	head = (t_stack_node *)malloc(sizeof(*head));
-	if (!head)
+	if (head == NULL)
 		return (NULL);
-	head->value = value;
-	head->next = NULL;
+	while (head->next)
+		head = head->next;
 	return (head);
 }
 
-void	ft_stackadd_front(t_stack_node **stack, t_stack_node *new)
+void	append_stack(t_stack_node **stack, int n)
 {
+	t_stack_node *node;
+	t_stack_node *last_node;
+
+	if (stack == NULL)
+		return ;
+	node = malloc(sizeof(t_stack_node));
+	if (node == NULL)
+		return ;
+	node->next = NULL;
+	node->value = n;
 	if (*stack == NULL)
-		*stack = new;
+	{
+		*stack = node;
+		node->prev = NULL;
+	}
 	else
 	{
-		new->next = *stack;
-		*stack = new;
+		last_node = find_last_node(*stack);
+		last_node->next = node;
+		node->prev = last_node;
 	}
-}
-t_stack_node	*ft_stacklast(t_stack_node **stack)
-{
-	if (!stack || !(*stack))
-		return (NULL);
-	while ((*stack)->next != NULL)
-		*stack = (*stack)->next;
-	return (*stack);
 }
