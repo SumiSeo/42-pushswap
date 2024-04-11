@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   control_error.c                                    :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sumseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 15:24:44 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/11 19:59:29 by sumseo           ###   ########.fr       */
+/*   Created: 2023/11/21 10:44:13 by sumseo            #+#    #+#             */
+/*   Updated: 2023/11/21 11:38:11 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	exit_program(char *err_msg)
+int	ft_lstsize(t_list *lst)
 {
-	printf("%s", err_msg);
-	exit(EXIT_FAILURE);
+	int	i;
+
+	i = 0;
+	while (lst != NULL)
+	{
+		i++;
+		lst = lst->next;
+	}
+	return (i);
 }

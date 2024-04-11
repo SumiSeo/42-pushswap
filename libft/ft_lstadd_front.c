@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   control_error.c                                    :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sumseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 15:24:44 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/11 19:59:29 by sumseo           ###   ########.fr       */
+/*   Created: 2023/11/21 10:48:34 by sumseo            #+#    #+#             */
+/*   Updated: 2023/11/21 11:24:50 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	exit_program(char *err_msg)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	printf("%s", err_msg);
-	exit(EXIT_FAILURE);
+	if (*lst == NULL)
+		*lst = new;
+	else
+	{
+		new->next = *lst;
+		*lst = new;
+	}
 }

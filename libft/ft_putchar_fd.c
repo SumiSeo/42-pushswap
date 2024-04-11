@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   control_error.c                                    :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sumseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 15:24:44 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/11 19:59:29 by sumseo           ###   ########.fr       */
+/*   Created: 2023/11/18 13:54:03 by sumseo            #+#    #+#             */
+/*   Updated: 2023/11/18 14:07:01 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	exit_program(char *err_msg)
+void	ft_putchar_fd(char c, int fd)
 {
-	printf("%s", err_msg);
-	exit(EXIT_FAILURE);
+	write(fd, &c, 1);
 }
+/*
+int	main(void)
+{
+	char	c;
+
+	c = 'a';
+	ft_putchar_fd(c,1);
+}
+*/

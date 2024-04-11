@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   control_error.c                                    :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sumseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 15:24:44 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/11 19:59:29 by sumseo           ###   ########.fr       */
+/*   Created: 2023/11/10 18:14:48 by sumseo            #+#    #+#             */
+/*   Updated: 2023/11/10 18:24:20 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	exit_program(char *err_msg)
+int	ft_toupper(int c)
 {
-	printf("%s", err_msg);
-	exit(EXIT_FAILURE);
+	if (c >= 97 && c <= 122)
+		return (c - 32);
+	else
+		return (c);
 }
+
+/*
+int	main(void)
+{
+	char	alpha;
+
+	alpha = 'b';
+	printf("%c\n",toupper(alpha));
+	printf("%c\n",ft_toupper(alpha));
+}
+*/

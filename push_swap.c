@@ -6,19 +6,27 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:06:16 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/11 19:28:23 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/11 20:09:56 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_swap(char *num_list)
+int	main(int argc, char **argv)
 {
-	// printf("num list: %s\n", num_list);
-	// return (2);
-}
-int	main(int argc, char *argv[])
-{
+	int	i;
+
+	(void)argc;
+	(void)argv;
+	if (argc < 3)
+		exit_program("Wrong argument number!");
+	i = 1;
+	while (argv[i])
+	{
+		if (ft_isalpha(argv[i]))
+			printf("It is only number");
+		i++;
+	}
 	// t_stack_node	*a;
 	// a = NULL;
 	// if (argc == 1 || (argc == 2 && !argv[1][0]))

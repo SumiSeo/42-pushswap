@@ -1,19 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   control_error.c                                    :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sumseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 15:24:44 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/11 19:59:29 by sumseo           ###   ########.fr       */
+/*   Created: 2023/11/18 14:07:43 by sumseo            #+#    #+#             */
+/*   Updated: 2023/11/18 14:21:56 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	exit_program(char *err_msg)
+void	ft_putstr_fd(char *s, int fd)
 {
-	printf("%s", err_msg);
-	exit(EXIT_FAILURE);
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }
+/*
+int	main(void)
+{
+	char	*s;
+
+	s = "Sumi is tesiting";
+	ft_putstr_fd(s, 1);
+}
+*/

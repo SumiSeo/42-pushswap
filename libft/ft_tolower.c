@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   control_error.c                                    :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sumseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 15:24:44 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/11 19:59:29 by sumseo           ###   ########.fr       */
+/*   Created: 2023/11/10 18:25:03 by sumseo            #+#    #+#             */
+/*   Updated: 2023/11/10 18:27:26 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	exit_program(char *err_msg)
+int	ft_tolower(int c)
 {
-	printf("%s", err_msg);
-	exit(EXIT_FAILURE);
+	if (c >= 65 && c <= 90)
+		return (c + 32);
+	else
+		return (c);
 }
+
+/*
+int	main(void)
+{
+	char	alpha;
+
+	alpha = 'Z';
+	printf("%c\n",tolower(alpha));
+	printf("%c\n",ft_tolower(alpha));
+}
+*/

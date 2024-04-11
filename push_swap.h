@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:04:46 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/11 16:26:39 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/11 19:58:53 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+
+void	exit_program(char *err_msg);
 
 #endif

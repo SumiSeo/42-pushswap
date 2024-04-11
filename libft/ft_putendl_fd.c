@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   control_error.c                                    :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sumseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 15:24:44 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/11 19:59:29 by sumseo           ###   ########.fr       */
+/*   Created: 2023/11/18 14:23:14 by sumseo            #+#    #+#             */
+/*   Updated: 2023/11/18 14:41:01 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	exit_program(char *err_msg)
+void	ft_putendl_fd(char *s, int fd)
 {
-	printf("%s", err_msg);
-	exit(EXIT_FAILURE);
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }
+/*
+int	main(void)
+{
+	char *s = "Sumi is working on saturday";
+	ft_putendl_fd(s,1);
+}*/

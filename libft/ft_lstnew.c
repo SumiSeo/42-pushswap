@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   control_error.c                                    :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: sumseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 15:24:44 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/11 19:59:29 by sumseo           ###   ########.fr       */
+/*   Created: 2023/11/21 10:21:39 by sumseo            #+#    #+#             */
+/*   Updated: 2023/11/21 11:07:56 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	exit_program(char *err_msg)
+t_list	*ft_lstnew(void *content)
 {
-	printf("%s", err_msg);
-	exit(EXIT_FAILURE);
+	t_list	*head;
+
+	head = (t_list *)malloc(sizeof(*head));
+	if (!head)
+		return (NULL);
+	head->content = content;
+	head->next = NULL;
+	return (head);
 }
