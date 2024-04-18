@@ -6,38 +6,72 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:06:16 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/11 20:09:56 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/18 18:09:00 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	parse_stack_argv(t_stack *a)
+{
+	// Check is invalid number
+	// printf("Each element %d\n", a->data);
+	// printf("Each element %d\n", a->next->data);
+	// printf("Each element %d\n", a->next->next->data);
+	// printf("Each element %d\n", a->next->next->next->data);
+	// printf("Each element %d\n", a->next->next->next->next->data);
+	// printf("Each element %d\n", a->next->next->next->next->next->data);
+	// if they are same number
+	// if they are maxint or minint
+	print_stack(a);
+}
+void	create_stack_argv(int argc, char **argv, t_stack *a)
+{
+	char	**converted_argv;
+	int		converted_int;
+	t_stack	*new_elem;
+	int		i;
+
+	// int		check;
+	if (argc == 2)
+	{
+		i = 0;
+		converted_argv = ft_split(argv[1], ' ');
+		while (converted_argv[i])
+		{
+			if (converted_argv[i][0] >= 'a' && converted_argv[i][0] <= 'z')
+				return ;
+			else
+			{
+				converted_int = ft_atoi(converted_argv[i]);
+				new_elem = ft_stack_new(converted_int);
+				ft_stackadd_back(&a, new_elem);
+			}
+			i++;
+		}
+		free_array(converted_argv);
+	}
+	else
+	{
+		i = 1;
+		while (argv[i])
+		{
+			converted_int = ft_atoi(argv[i]);
+			ft_stackadd_back(&a, ft_stack_new(converted_int));
+			i++;
+		}
+	}
+	parse_stack_argv(a);
+}
 int	main(int argc, char **argv)
 {
-	int	i;
+	t_stack	*a;
+	t_stack	*b;
 
-	(void)argc;
-	(void)argv;
-	if (argc < 3)
+	(void)b;
+	a = NULL;
+	if (argc == 1)
 		exit_program("Wrong argument number!");
-	i = 1;
-	while (argv[i])
-	{
-		if (ft_isalpha(argv[i]))
-			printf("It is only number");
-		i++;
-	}
-	// t_stack_node	*a;
-	// a = NULL;
-	// if (argc == 1 || (argc == 2 && !argv[1][0]))
-	// 	return (1);
-	// else if (argc == 2)
-	// {
-	// 	argv = ft_split(argv[1], ' ');
-	// 	create_stack(&a, argv);
-	// }
-	// else
-	// 	create_stack(&a, argv + 1);
-	// test
-	// return (1);
+	create_stack_argv(argc, argv, a);
+	return (1);
 }

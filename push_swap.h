@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:04:46 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/11 19:58:53 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/18 17:29:12 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,20 @@
 # include <string.h>
 # include <unistd.h>
 
-void	exit_program(char *err_msg);
+typedef struct s_stack
+{
+	int				data;
+	struct s_stack	*prev;
+	struct s_stack	*next;
+}					t_stack;
+
+void				exit_program(char *err_msg);
+void				create_stack_argv(int argc, char **argv, t_stack *a);
+t_stack				*ft_stack_new(int data);
+void				ft_stackadd_back(t_stack **stacks, t_stack *stack);
+void				parse_stack_argv(t_stack *a);
+void				ft_stack_free(char **line);
+void				free_array(char **line);
+void				print_stack(t_stack *a);
 
 #endif

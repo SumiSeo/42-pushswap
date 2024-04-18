@@ -1,8 +1,8 @@
-NAME = pushswap
+NAME = push_swap
 
 # SRCS AND OBJS FOR COMPILING
 
-SRCS = push_swap.c control_error.c
+SRCS = push_swap.c control_error.c stacks/stack_utils.c
 INCLUDES = libft/
 OBJS = $(SRCS:%.c=%.o)
 
