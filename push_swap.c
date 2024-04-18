@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:06:16 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/18 18:09:00 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/18 18:16:08 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	create_stack_argv(int argc, char **argv, t_stack *a)
 		while (converted_argv[i])
 		{
 			if (converted_argv[i][0] >= 'a' && converted_argv[i][0] <= 'z')
-				return ;
+				exit_program(converted_argv, "There is CHAR type in arguments");
 			else
 			{
 				converted_int = ft_atoi(converted_argv[i]);
@@ -56,6 +56,8 @@ void	create_stack_argv(int argc, char **argv, t_stack *a)
 		i = 1;
 		while (argv[i])
 		{
+			if (argv[i][0] >= 'a' && argv[i][0] <= 'z')
+				exit_program(NULL, "There is CHAR type in arguments");
 			converted_int = ft_atoi(argv[i]);
 			ft_stackadd_back(&a, ft_stack_new(converted_int));
 			i++;
@@ -71,7 +73,7 @@ int	main(int argc, char **argv)
 	(void)b;
 	a = NULL;
 	if (argc == 1)
-		exit_program("Wrong argument number!");
+		exit_program(NULL, "Wrong argument number!");
 	create_stack_argv(argc, argv, a);
 	return (1);
 }
