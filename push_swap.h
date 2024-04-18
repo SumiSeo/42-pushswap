@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:04:46 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/18 18:15:50 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/18 19:39:04 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@ void				parse_stack_argv(t_stack *a);
 void				ft_stack_free(char **line);
 void				free_array(char **line);
 void				print_stack(t_stack *a);
+int					ft_stack_size(t_stack *stack);
 
 #endif
