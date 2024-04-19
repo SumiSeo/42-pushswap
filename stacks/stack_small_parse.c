@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:14:11 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/19 17:49:29 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/19 19:58:11 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,32 @@ bool	is_stack_ordered(t_stack *a)
 
 t_stack	*sort_3_stack(t_stack *a, t_stack *b)
 {
+	t_stack	*current;
+
 	(void)a;
 	pa(a, b);
+	while (a)
+	{
+		current = a;
+		if (current->data > current->next->data)
+			ra(current->data, current->next->data);
+		// else if()f
+		a = a->next;
+	}
 	return (a);
 }
 
 t_stack	*sort_4_stack(t_stack *a, t_stack *b)
 {
 	(void)a;
+	(void)b;
 	return (a);
 }
 
 t_stack	*sort_5_stack(t_stack *a, t_stack *b)
 {
 	(void)a;
+	(void)b;
 	return (a);
 }
 void	sort_small_stack(int stack_size, t_stack *a, t_stack *b)

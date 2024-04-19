@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:06:16 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/19 17:20:49 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/19 19:41:32 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ int	main(int argc, char **argv)
 	int		stack_size;
 
 	a = NULL;
+	b = NULL;
 	if (argc == 1)
 		exit_program(NULL, "Wrong argument number!");
 	a = create_stack_argv(argc, argv, a);
