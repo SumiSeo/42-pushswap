@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:33:37 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/19 13:14:23 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/19 14:12:20 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	print_stack(t_stack *a)
 	}
 	printf("***********************\n");
 }
+
 void	free_array(char **line)
 {
 	int	i;
@@ -55,6 +56,7 @@ void	free_array(char **line)
 	}
 	free(line);
 }
+
 void	ft_stack_free(char **line)
 {
 	int	i;
@@ -83,11 +85,10 @@ t_stack	*ft_stack_new(int data)
 
 void	ft_stackadd_back(t_stack **stack, t_stack *new)
 {
-	t_stack *last;
+	t_stack		*last;
+
 	if (*stack == NULL)
-	{
 		*stack = new;
-	}
 	else
 	{
 		last = *stack;

@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:06:16 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/19 14:07:23 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/19 14:42:14 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,38 +36,46 @@ void	parse_stack_argv(t_stack *a)
 		a = a->next;
 	}
 }
+t_stack	*create_stack_two_args(char **converted_argv, t_stack *a)
+{
+	int		converted_int;
+	int		j;
+	t_stack	*new_elem;
+	int		i;
+
+	i = 0;
+	while (converted_argv[i])
+	{
+		j = 0;
+		while (converted_argv[i][j])
+		{
+			if (converted_argv[i][j] == '+' || converted_argv[i][j] == '-')
+				j++;
+			if (!ft_isdigit(converted_argv[i][j]))
+				exit_program(converted_argv, "CHAR type in arguments.");
+			else
+			{
+				converted_int = ft_atoi(converted_argv[i]);
+				new_elem = ft_stack_new(converted_int);
+				ft_stackadd_back(&a, new_elem);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (a);
+}
+
 void	create_stack_argv(int argc, char **argv, t_stack *a)
 {
 	char	**converted_argv;
-	int		converted_int;
-	t_stack	*new_elem;
 	int		i;
-	int		j;
+	int		converted_int;
 
 	if (argc == 2)
 	{
-		i = 0;
 		converted_argv = ft_split(argv[1], ' ');
-		while (converted_argv[i])
-		{
-			j = 0;
-			while (converted_argv[i][j])
-			{
-				if (converted_argv[i][j] == '+' || converted_argv[i][j] == '-')
-					j++;
-				if (!ft_isdigit(converted_argv[i][j]))
-					exit_program(converted_argv,
-						"There is CHAR type in arguments.");
-				else
-				{
-					converted_int = ft_atoi(converted_argv[i]);
-					new_elem = ft_stack_new(converted_int);
-					ft_stackadd_back(&a, new_elem);
-				}
-				j++;
-			}
-			i++;
-		}
+		a = create_stack_two_args(converted_argv, a);
 		free_array(converted_argv);
 	}
 	else
@@ -84,6 +92,7 @@ void	create_stack_argv(int argc, char **argv, t_stack *a)
 	}
 	parse_stack_argv(a);
 }
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;

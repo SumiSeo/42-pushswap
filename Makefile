@@ -2,7 +2,7 @@ NAME = push_swap
 
 # SRCS AND OBJS FOR COMPILING
 
-SRCS = push_swap.c control_error.c stacks/stack_utils.c
+SRCS = push_swap.c control_error.c stacks/stack_utils.c stacks/stack_small_parse.c
 INCLUDES = libft/
 OBJS = $(SRCS:%.c=%.o)
 
