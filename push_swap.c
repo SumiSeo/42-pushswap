@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:06:16 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/18 19:41:28 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/19 14:07:23 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 void	parse_stack_argv(t_stack *a)
 {
-	int	stack_size;
-	int	i;
+	int		stack_size;
+	int		i;
+	t_stack	*current;
 
 	if (a == NULL)
 		exit_program(NULL, "Stack is empty");
 	print_stack(a);
 	stack_size = ft_stack_size(a);
+	printf("Stack size %d\n", stack_size);
 	i = 0;
 	while (a)
 	{
-		if (a->data == a->next->data)
+		current = a->next;
+		while (current)
 		{
-			printf("dataaaam %d\n", a->data);
-			exit_program(NULL, "Some number is same");
+			if (a->data == current->data)
+				exit_program(NULL, "Some number is same");
+			current = current->next;
 		}
-		else
-		{
-			printf("data %d\n", a->data);
-			a = a->next;
-		}
+		a = a->next;
 	}
 }
 void	create_stack_argv(int argc, char **argv, t_stack *a)
