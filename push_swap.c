@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:06:16 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/19 14:42:14 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/19 15:33:15 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 
 void	parse_stack_argv(t_stack *a)
 {
-	int		stack_size;
 	int		i;
 	t_stack	*current;
 
 	if (a == NULL)
 		exit_program(NULL, "Stack is empty");
 	print_stack(a);
-	stack_size = ft_stack_size(a);
-	printf("Stack size %d\n", stack_size);
 	i = 0;
 	while (a)
 	{
@@ -66,7 +63,7 @@ t_stack	*create_stack_two_args(char **converted_argv, t_stack *a)
 	return (a);
 }
 
-void	create_stack_argv(int argc, char **argv, t_stack *a)
+t_stack	*create_stack_argv(int argc, char **argv, t_stack *a)
 {
 	char	**converted_argv;
 	int		i;
@@ -91,17 +88,24 @@ void	create_stack_argv(int argc, char **argv, t_stack *a)
 		}
 	}
 	parse_stack_argv(a);
+	return (a);
 }
 
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
+	int		stack_size;
 
 	(void)b;
 	a = NULL;
 	if (argc == 1)
 		exit_program(NULL, "Wrong argument number!");
-	create_stack_argv(argc, argv, a);
+	a = create_stack_argv(argc, argv, a);
+	if (is_stack_ordered(a))
+		exit_program(NULL, "Is is already correctlly ordered");
+	stack_size = ft_stack_size(a);
+	if (stack_size < 5)
+		sort_small_stack(stack_size, a);
 	return (1);
 }
