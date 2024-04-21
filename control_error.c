@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:24:44 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/21 18:06:51 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/21 21:15:19 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,39 +35,41 @@ void	free_array(char **line)
 	free(line);
 }
 
-void	print_stack(t_stack *a)
+void	print_stack(t_stack **a)
 {
 	printf("***********************\n");
-	while (a)
+	while (a && (*a))
 	{
-		printf("current a: %d", a->data);
-		if (a->next)
-			printf(", next: %d", a->next->data);
+		printf("current value: %d", (*a)->data);
+		if ((*a)->next)
+			printf(", next: %d\n", (*a)->next->data);
 		else
-			printf(", next: NULL");
-		a = a->next;
+			printf(", next: NULL\n");
+		*a = (*a)->next;
 	}
 	printf("***********************\n");
 }
 
 void	print_stacks(t_stack *a, t_stack *b)
 {
+	printf("***********************\n");
 	while (a || b)
 	{
 		if (a && a->data)
 		{
-			printf("%d  ", a->data);
+			printf("%d    ", a->data);
 			a = a->next;
 		}
 		else
-			printf("     \n");
+			printf("     ");
 		if (b && b->data)
 		{
-			printf("%d \n", b->data);
+			printf("%d    ", b->data);
 			b = b->next;
 		}
 		else
-			printf("     \n");
+			printf("     ");
+		printf("\n");
 	}
 	printf("__  __\n");
 	printf("a   b\n\n");

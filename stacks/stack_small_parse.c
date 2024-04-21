@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:14:11 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/21 18:17:54 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/21 21:13:25 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,21 @@ bool	is_stack_ordered(t_stack *a)
 	return (true);
 }
 
-t_stack	*sort_3_stack(t_stack *a, t_stack *b)
+t_stack	*sort_3_stack(t_stack **a, t_stack **b)
 {
 	// t_stack	*current;
-	print_stacks(a, b);
-	pb(&a, &b);
-	print_stacks(a, b);
-	pa(&a, &b);
-	print_stacks(a, b);
+	pb(a, b);
+	pb(a, b);
+	// print_stack(b);
+	printf("%d\n", (*b)->data);
+	printf("%d\n", (*b)->next->data);
+	print_stacks(*a, *b);
+	// print_stack(a);
+	// print_stack(b);
+	// printf("%d\n", (*b)->next->next->data);
+	// print_stacks(a, b);
+	// sb(&b);
+	// print_stacks(a, b);
 	// pa(a, b);
 	// while (a)
 	// {
@@ -61,25 +68,24 @@ t_stack	*sort_3_stack(t_stack *a, t_stack *b)
 	// 	// else if()f
 	// 	a = a->next;
 	// }
-	return (a);
+	return (*a);
 }
 
-t_stack	*sort_4_stack(t_stack *a, t_stack *b)
+t_stack	*sort_4_stack(t_stack **a, t_stack **b)
 {
 	(void)a;
 	(void)b;
-	return (a);
+	return (*a);
 }
 
-t_stack	*sort_5_stack(t_stack *a, t_stack *b)
+t_stack	*sort_5_stack(t_stack **a, t_stack **b)
 {
 	(void)a;
 	(void)b;
-	return (a);
+	return (*a);
 }
-void	sort_small_stack(int stack_size, t_stack *a, t_stack *b)
+void	sort_small_stack(int stack_size, t_stack **a, t_stack **b)
 {
-	printf("Stack size :  %d\n", stack_size);
 	if (stack_size == 3)
 		sort_3_stack(a, b);
 	else if (stack_size == 4)
