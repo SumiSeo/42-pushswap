@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:04:46 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/21 18:10:03 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/21 18:20:20 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,14 @@ void				sort_small_stack(int stack_size, t_stack *a, t_stack *b);
 t_stack				*sort_3_stack(t_stack *a, t_stack *b);
 t_stack				*sort_4_stack(t_stack *a, t_stack *b);
 t_stack				*sort_5_stack(t_stack *a, t_stack *b);
-// void				pa(t_stack *a, t_stack *b);
 void				pa(t_stack **a, t_stack **b);
-// void				pb(t_stack *a, t_stack *b);
 void				pb(t_stack **a, t_stack **b);
-void				ra(t_stack *a, t_stack *b);
-void				rb(t_stack *a, t_stack *b);
-void				rr(t_stack *a, t_stack *b);
-void				rra(t_stack *a, t_stack *b);
-void				rrb(t_stack *a, t_stack *b);
-void				rrr(t_stack *a, t_stack *b);
+void				ra(t_stack **a, t_stack **b);
+void				rb(t_stack **a, t_stack **b);
+void				rr(t_stack **a, t_stack **b);
+void				rra(t_stack **a, t_stack **b);
+void				rrb(t_stack **a, t_stack **b);
+void				rrr(t_stack **a, t_stack **b);
 void				print_stacks(t_stack *a, t_stack *b);
 void				ft_stackadd_front(t_stack **stack, t_stack *new);
 void				ft_stackremove_one(t_stack **stack);
