@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:04:46 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/19 20:01:41 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/21 16:38:45 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,9 @@ void				pb(t_stack *a, t_stack *b);
 void				ra(t_stack *a, t_stack *b);
 void				rb(t_stack *a, t_stack *b);
 void				rr(t_stack *a, t_stack *b);
+void				rra(t_stack *a, t_stack *b);
+void				rrb(t_stack *a, t_stack *b);
+void				rrr(t_stack *a, t_stack *b);
+void				ft_stackadd_front(t_stack **stack, t_stack *new);
+void				ft_stackremove_one(t_stack **stack);
 #endif

@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:33:37 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/19 14:12:20 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/21 17:09:03 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,38 +23,6 @@ int	ft_stack_size(t_stack *stack)
 		stack = stack->next;
 	}
 	return (i);
-}
-
-void	print_stack(t_stack *a)
-{
-	printf("***********************\n");
-	while (a)
-	{
-		printf("current a: %d", a->data);
-		if (a->next)
-			printf(", next: %d", a->next->data);
-		else
-			printf(", next: NULL");
-		if (a->prev)
-			printf(", prev: %d\n", a->prev->data);
-		else
-			printf(", prev: NULL\n");
-		a = a->next;
-	}
-	printf("***********************\n");
-}
-
-void	free_array(char **line)
-{
-	int	i;
-
-	i = 0;
-	while (line[i])
-	{
-		free(line[i]);
-		i++;
-	}
-	free(line);
 }
 
 void	ft_stack_free(char **line)
@@ -85,7 +53,7 @@ t_stack	*ft_stack_new(int data)
 
 void	ft_stackadd_back(t_stack **stack, t_stack *new)
 {
-	t_stack		*last;
+	t_stack	*last;
 
 	if (*stack == NULL)
 		*stack = new;
@@ -96,5 +64,30 @@ void	ft_stackadd_back(t_stack **stack, t_stack *new)
 			last = last->next;
 		last->next = new;
 		new->prev = last;
+	}
+}
+
+void	ft_stackadd_front(t_stack **stack, t_stack *new)
+{
+	if (*stack == NULL)
+		*stack = new;
+	else
+	{
+		new->next = *stack;
+		*stack = new;
+	}
+}
+
+void	ft_stackremove_one(t_stack **stack)
+{
+	t_stack	*current;
+
+	if (*stack == NULL)
+		return ;
+	else
+	{
+		current = *stack;
+		*stack = current->next;
+		current = NULL;
 	}
 }
