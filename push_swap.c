@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:06:16 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/21 16:53:55 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/21 17:25:20 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	parse_stack_argv(t_stack *a)
 
 	if (a == NULL)
 		exit_program(NULL, "Stack is empty");
-	print_stack(a);
 	i = 0;
 	while (a)
 	{

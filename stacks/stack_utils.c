@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:33:37 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/21 17:09:03 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/21 18:04:26 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ t_stack	*ft_stack_new(int data)
 	if (!head)
 		return (NULL);
 	head->data = data;
-	head->prev = NULL;
 	head->next = NULL;
 	return (head);
 }
@@ -63,7 +62,6 @@ void	ft_stackadd_back(t_stack **stack, t_stack *new)
 		while (last->next != NULL)
 			last = last->next;
 		last->next = new;
-		new->prev = last;
 	}
 }
 

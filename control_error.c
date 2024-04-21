@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 15:24:44 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/21 16:39:12 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/21 18:06:51 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,30 @@ void	print_stack(t_stack *a)
 			printf(", next: %d", a->next->data);
 		else
 			printf(", next: NULL");
-		if (a->prev)
-			printf(", prev: %d\n", a->prev->data);
-		else
-			printf(", prev: NULL\n");
 		a = a->next;
 	}
 	printf("***********************\n");
+}
+
+void	print_stacks(t_stack *a, t_stack *b)
+{
+	while (a || b)
+	{
+		if (a && a->data)
+		{
+			printf("%d  ", a->data);
+			a = a->next;
+		}
+		else
+			printf("     \n");
+		if (b && b->data)
+		{
+			printf("%d \n", b->data);
+			b = b->next;
+		}
+		else
+			printf("     \n");
+	}
+	printf("__  __\n");
+	printf("a   b\n\n");
 }

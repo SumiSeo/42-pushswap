@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:14:11 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/21 17:00:59 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/21 18:17:54 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,12 @@ bool	is_stack_ordered(t_stack *a)
 t_stack	*sort_3_stack(t_stack *a, t_stack *b)
 {
 	// t_stack	*current;
-	pb(a, b);
+	print_stacks(a, b);
+	pb(&a, &b);
+	print_stacks(a, b);
+	pa(&a, &b);
+	print_stacks(a, b);
 	// pa(a, b);
-	print_stack(b);
-	printf("TESTEST\n");
-	print_stack(a);
 	// while (a)
 	// {
 	// 	// 743 734 347 374 437 473
