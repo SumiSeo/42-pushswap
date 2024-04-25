@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:06:16 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/25 15:26:33 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/25 17:45:11 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	parse_stack_argv(t_stack *a)
 		a = a->next;
 	}
 }
+
 t_stack	*create_stack_two_args(char **converted_argv, t_stack *a)
 {
 	int		converted_int;
