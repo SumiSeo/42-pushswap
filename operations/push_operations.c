@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:18:04 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/21 20:40:28 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/25 15:34:10 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,11 @@ void	pa(t_stack **a, t_stack **b)
 		ft_stackremove_one(b);
 	}
 }
+
 void	pb(t_stack **a, t_stack **b)
 {
-	int a_data;
-	t_stack *head;
+	int		a_data;
+	t_stack	*head;
 
 	printf("pb CALLED\n");
 	while (!a || !(*a))
@@ -43,6 +44,4 @@ void	pb(t_stack **a, t_stack **b)
 		ft_stackadd_front(b, head);
 		ft_stackremove_one(a);
 	}
-
-	// if there is already something in b
 }

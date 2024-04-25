@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:14:11 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/21 21:13:25 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/25 15:35:00 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@ t_stack	*sort_3_stack(t_stack **a, t_stack **b)
 {
 	// t_stack	*current;
 	pb(a, b);
-	pb(a, b);
-	// print_stack(b);
-	printf("%d\n", (*b)->data);
-	printf("%d\n", (*b)->next->data);
+	// pb(a, b);
+	print_stacks(*a, *b);
+	ss(a, b);
 	print_stacks(*a, *b);
 	// print_stack(a);
 	// print_stack(b);
@@ -73,8 +72,11 @@ t_stack	*sort_3_stack(t_stack **a, t_stack **b)
 
 t_stack	*sort_4_stack(t_stack **a, t_stack **b)
 {
-	(void)a;
-	(void)b;
+	pb(a, b);
+	pb(a, b);
+	print_stacks(*a, *b);
+	ss(a, b);
+	print_stacks(*a, *b);
 	return (*a);
 }
 
