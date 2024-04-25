@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:14:11 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/25 20:54:05 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/25 20:59:06 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,45 +32,45 @@ bool	is_stack_ordered(t_stack *a)
 	return (true);
 }
 
+void	sort_3_stack_util(t_stack **a, int check)
+{
+	if (check == 1)
+	{
+		ra(a);
+		sa(a);
+		rra(a);
+	}
+	else
+	{
+		sa(a);
+		rra(a);
+	}
+}
 t_stack	*sort_3_stack(t_stack **a)
 {
 	t_stack	*current;
 
-	if (a)
-	{
-		current = *a;
-		if (current->data > current->next->data
-			&& current->next->data > current->next->next->data)
-		{
-			sa(a);
-			rra(a);
-		}
-		else if (current->data < current->next->data
-			&& current->next->next->data < current->next->data
-			&& current->next->next->data < current->data)
-			rra(a);
-		else if (current->data > current->next->data
-			&& current->next->data < current->next->next->data
-			&& current->data < current->next->next->data)
-			sa(a);
-		else if (current->data > current->next->data
-			&& current->next->data < current->next->next->data)
-			ra(a);
-		else if ((current->data < current->next->data
-				&& current->next->data > current->next->next->data))
-		{
-			ra(a);
-			sa(a);
-			rra(a);
-		}
-		else if (current->data < current->next->data
-			&& current->next->data > current->next->next->data)
-		{
-			ra(a);
-			sa(a);
-			rra(a);
-		}
-	}
+	current = *a;
+	if (current->data > current->next->data
+		&& current->next->data > current->next->next->data)
+		sort_3_stack_util(a, 2);
+	else if (current->data < current->next->data
+		&& current->next->next->data < current->next->data
+		&& current->next->next->data < current->data)
+		rra(a);
+	else if (current->data > current->next->data
+		&& current->next->data < current->next->next->data
+		&& current->data < current->next->next->data)
+		sa(a);
+	else if (current->data > current->next->data
+		&& current->next->data < current->next->next->data)
+		ra(a);
+	else if ((current->data < current->next->data
+			&& current->next->data > current->next->next->data))
+		sort_3_stack_util(a, 1);
+	else if (current->data < current->next->data
+		&& current->next->data > current->next->next->data)
+		sort_3_stack_util(a, 1);
 	return (*a);
 }
 

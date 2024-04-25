@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:04:46 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/25 20:54:21 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/25 20:59:15 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ void				ft_stackadd_front(t_stack **stack, t_stack *new);
 void				ft_stackremove_one(t_stack **stack);
 t_stack				*ft_stack_last(t_stack *stack);
 void				ft_stackremove_last_one(t_stack **stack);
+void				sort_3_stack_util(t_stack **a, int check);
 
 #endif
