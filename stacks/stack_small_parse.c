@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:14:11 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/25 17:44:28 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/25 20:54:05 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,41 +32,45 @@ bool	is_stack_ordered(t_stack *a)
 	return (true);
 }
 
-t_stack	*sort_3_stack(t_stack **a, t_stack **b)
+t_stack	*sort_3_stack(t_stack **a)
 {
-	// t_stack	*current;
-	pb(a, b);
-	pb(a, b);
-	print_stacks(*a, *b);
-	ss(a, b);
-	print_stacks(*a, *b);
-	// print_stack(a);
-	// print_stack(b);
-	// printf("%d\n", (*b)->next->next->data);
-	// print_stacks(a, b);
-	// sb(&b);
-	// print_stacks(a, b);
-	// pa(a, b);
-	// while (a)
-	// {
-	// 	// 743 734 347 374 437 473
-	// 	current = a;
-	// 	// 743
-	// 	if (current->data > current->next->data
-	// 		&& current->next->data > current->next->next->data)
-	// 	{
-	// 		// find correct condition by comparing all ifs
-	// 		rra(a, b);
-	// 	}
-	// 	else if (current->data > current->next->data
-	// 		&& current->next->data < current->next->next->data)
-	// 	{
-	// 		//
-	// 	}
-	// 	//	ra(current->data, current->next->data);
-	// 	// else if()f
-	// 	a = a->next;
-	// }
+	t_stack	*current;
+
+	if (a)
+	{
+		current = *a;
+		if (current->data > current->next->data
+			&& current->next->data > current->next->next->data)
+		{
+			sa(a);
+			rra(a);
+		}
+		else if (current->data < current->next->data
+			&& current->next->next->data < current->next->data
+			&& current->next->next->data < current->data)
+			rra(a);
+		else if (current->data > current->next->data
+			&& current->next->data < current->next->next->data
+			&& current->data < current->next->next->data)
+			sa(a);
+		else if (current->data > current->next->data
+			&& current->next->data < current->next->next->data)
+			ra(a);
+		else if ((current->data < current->next->data
+				&& current->next->data > current->next->next->data))
+		{
+			ra(a);
+			sa(a);
+			rra(a);
+		}
+		else if (current->data < current->next->data
+			&& current->next->data > current->next->next->data)
+		{
+			ra(a);
+			sa(a);
+			rra(a);
+		}
+	}
 	return (*a);
 }
 
@@ -91,10 +95,13 @@ t_stack	*sort_5_stack(t_stack **a, t_stack **b)
 }
 void	sort_small_stack(int stack_size, t_stack **a, t_stack **b)
 {
+	print_stacks(*a, *b);
+	printf("************************");
 	if (stack_size == 3)
-		sort_3_stack(a, b);
+		sort_3_stack(a);
 	else if (stack_size == 4)
 		sort_4_stack(a, b);
 	else
 		sort_5_stack(a, b);
+	print_stacks(*a, *b);
 }
