@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:27:55 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/25 16:28:36 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/25 17:33:12 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_stackadd_front(t_stack **stack, t_stack *new)
 
 void	ft_stackremove_one(t_stack **stack)
 {
-	t_stack *current;
+	t_stack	*current;
 
 	if (*stack == NULL)
 		return ;
@@ -62,4 +62,25 @@ void	ft_stackremove_one(t_stack **stack)
 		*stack = current->next;
 		free(current);
 	}
+}
+
+void	ft_stackremove_last_one(t_stack **stack)
+{
+	t_stack	*current;
+	t_stack	*prev;
+
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
+	current = *stack;
+	prev = NULL;
+	while (current->next != NULL)
+	{
+		prev = current;
+		current = current->next;
+	}
+	free(current);
+	if (prev != NULL)
+		prev->next = NULL;
+	else
+		*stack = NULL;
 }

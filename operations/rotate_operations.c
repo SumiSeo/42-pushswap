@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:17:57 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/25 16:27:06 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/25 16:30:48 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ra(t_stack **a)
 {
 	int	head_data;
 
-	printf("ra\n");
+	printf("ra CALLED\n");
 	while (!a || !(*a) || !(*a)->next)
 		return ;
 	if (*a)
@@ -26,11 +26,12 @@ void	ra(t_stack **a)
 	}
 	*a = (*a)->next;
 }
+
 void	rb(t_stack **b)
 {
 	int	head_data;
 
-	printf("rb\n");
+	printf("rb CALLED\n");
 	while (!b || !(*b) || !(*b)->next)
 		return ;
 	if (*b)
@@ -43,10 +44,10 @@ void	rb(t_stack **b)
 
 void	rr(t_stack **a, t_stack **b)
 {
-	int a_data;
-	int b_data;
+	int	a_data;
+	int	b_data;
 
-	printf("ra\n");
+	printf("rr CALLED\n");
 	while (!a || !(*a) || !(*a)->next)
 		return ;
 	if (*a)
@@ -55,7 +56,6 @@ void	rr(t_stack **a, t_stack **b)
 		ft_stackadd_back(a, ft_stack_new(a_data));
 	}
 	*a = (*a)->next;
-
 	while (!b || !(*b) || !(*b)->next)
 		return ;
 	if (*b)

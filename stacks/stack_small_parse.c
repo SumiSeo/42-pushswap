@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:14:11 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/25 16:27:31 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/25 17:33:24 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,11 @@ t_stack	*sort_4_stack(t_stack **a, t_stack **b)
 {
 	pb(a, b);
 	pb(a, b);
-	pb(a, b);
 	print_stacks(*a, *b);
 	// ss(a, b);
-	rb(b);
+	rr(a, b);
+	print_stacks(*a, *b);
+	rra(a);
 	print_stacks(*a, *b);
 	return (*a);
 }

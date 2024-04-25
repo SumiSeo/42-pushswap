@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:04:46 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/25 16:28:43 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/25 17:27:08 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void				pb(t_stack **a, t_stack **b);
 void				ra(t_stack **a);
 void				rb(t_stack **b);
 void				rr(t_stack **a, t_stack **b);
-void				rra(t_stack **a, t_stack **b);
-void				rrb(t_stack **a, t_stack **b);
+void				rra(t_stack **a);
+void				rrb(t_stack **a);
 void				rrr(t_stack **a, t_stack **b);
 void				sa(t_stack **a);
 void				sb(t_stack **b);
@@ -58,5 +58,6 @@ void				print_stacks(t_stack *a, t_stack *b);
 void				ft_stackadd_front(t_stack **stack, t_stack *new);
 void				ft_stackremove_one(t_stack **stack);
 t_stack				*ft_stack_last(t_stack *stack);
+void				ft_stackremove_last_one(t_stack **stack);
 
 #endif
