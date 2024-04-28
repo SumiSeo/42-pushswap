@@ -6,29 +6,12 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:14:11 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/28 17:28:27 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/28 18:49:07 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	find_min_stack(t_stack **a)
-{
-	int		min;
-	int		current;
-	t_stack	*temp;
-
-	temp = *a;
-	min = temp->data;
-	while (temp)
-	{
-		current = (temp)->data;
-		if (current < min)
-			min = current;
-		temp = temp->next;
-	}
-	return (min);
-}
 t_stack	*sort_3_stack(t_stack **a)
 {
 	t_stack	*current;
@@ -78,6 +61,7 @@ t_stack	*sort_4_stack(t_stack **a, t_stack **b)
 	}
 	return (*a);
 }
+
 void	sort_5_stack_util(t_stack **a, t_stack **b)
 {
 	sort_3_stack(a);
