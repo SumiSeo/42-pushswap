@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:14:11 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/28 17:21:59 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/28 17:28:27 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,37 +78,37 @@ t_stack	*sort_4_stack(t_stack **a, t_stack **b)
 	}
 	return (*a);
 }
+void	sort_5_stack_util(t_stack **a, t_stack **b)
+{
+	sort_3_stack(a);
+	pa(a, b);
+	pa(a, b);
+}
 
 t_stack	*sort_5_stack(t_stack **a, t_stack **b)
 {
-	int		min;
-	int		next_min;
 	t_stack	*temp;
 	t_stack	*second_temp;
 
 	second_temp = *a;
 	temp = *a;
-	min = find_min_stack(a);
 	while (temp)
 	{
-		if (temp->data == min)
+		if (temp->data == find_min_stack(a))
 		{
 			ft_stackadd_front(b, ft_stack_new(temp->data));
-			ft_stackremove_one(a, min);
+			ft_stackremove_one(a, find_min_stack(a));
 			break ;
 		}
 		temp = temp->next;
 	}
-	next_min = find_min_stack(a);
 	while (second_temp)
 	{
-		if (second_temp->data == next_min)
+		if (second_temp->data == find_min_stack(a))
 		{
 			ft_stackadd_front(b, ft_stack_new(second_temp->data));
-			ft_stackremove_one(a, next_min);
-			sort_3_stack(a);
-			pa(a, b);
-			pa(a, b);
+			ft_stackremove_one(a, find_min_stack(a));
+			sort_5_stack_util(a, b);
 			break ;
 		}
 		second_temp = second_temp->next;
