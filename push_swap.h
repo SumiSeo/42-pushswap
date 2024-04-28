@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:04:46 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/28 17:02:31 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/28 18:44:10 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ void				ft_stackremove_last_one(t_stack **stack);
 void				ft_stackremove_first_one(t_stack **stack);
 void				sort_3_stack_util(t_stack **a, int check);
 int					find_min_stack(t_stack **a);
+void				sort_big_stack(int stack_size, t_stack **a, t_stack **b);
 
 #endif
