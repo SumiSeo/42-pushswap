@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:27:55 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/25 17:33:12 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/28 17:13:47 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	ft_stackadd_front(t_stack **stack, t_stack *new)
 	}
 }
 
-void	ft_stackremove_one(t_stack **stack)
+void	ft_stackremove_first_one(t_stack **stack)
 {
 	t_stack	*current;
 
@@ -61,6 +61,30 @@ void	ft_stackremove_one(t_stack **stack)
 		current = *stack;
 		*stack = current->next;
 		free(current);
+	}
+}
+
+void	ft_stackremove_one(t_stack **stack, int num)
+{
+	t_stack	*current;
+	t_stack	*prev;
+
+	current = *stack;
+	prev = NULL;
+	while (current != NULL)
+	{
+		if (current->data == num)
+		{
+			printf("Found match: num = %d\n", num);
+			if (prev == NULL)
+				*stack = current->next;
+			else
+				prev->next = current->next;
+			free(current);
+			return ;
+		}
+		prev = current;
+		current = current->next;
 	}
 }
 

@@ -6,45 +6,28 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:14:11 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/25 21:01:27 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/28 17:16:18 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-bool	is_stack_ordered(t_stack *a)
+int	find_min_stack(t_stack **a)
 {
-	t_stack	*current;
-	int		next_data;
-	int		current_data;
+	int		min;
+	int		current;
+	t_stack	*temp;
 
-	if (a == NULL)
-		return (true);
-	current = a;
-	while (current->next != NULL)
+	temp = *a;
+	min = temp->data;
+	while (temp)
 	{
-		current_data = current->data;
-		next_data = current->next->data;
-		if (current_data >= next_data)
-			return (false);
-		current = current->next;
+		current = (temp)->data;
+		if (current < min)
+			min = current;
+		temp = temp->next;
 	}
-	return (true);
-}
-
-void	sort_3_stack_util(t_stack **a, int check)
-{
-	if (check == 1)
-	{
-		ra(a);
-		sa(a);
-		rra(a);
-	}
-	else
-	{
-		sa(a);
-		rra(a);
-	}
+	return (min);
 }
 t_stack	*sort_3_stack(t_stack **a)
 {
@@ -76,8 +59,23 @@ t_stack	*sort_3_stack(t_stack **a)
 
 t_stack	*sort_4_stack(t_stack **a, t_stack **b)
 {
-	sort_3_stack(a);
-	(void)b;
+	int		min;
+	t_stack	*temp;
+
+	temp = *a;
+	min = find_min_stack(a);
+	while (temp)
+	{
+		if (temp->data == min)
+		{
+			ft_stackadd_front(b, ft_stack_new(temp->data));
+			ft_stackremove_one(a, min);
+			sort_3_stack(a);
+			pa(a, b);
+			break ;
+		}
+		temp = temp->next;
+	}
 	return (*a);
 }
 
@@ -87,10 +85,11 @@ t_stack	*sort_5_stack(t_stack **a, t_stack **b)
 	(void)b;
 	return (*a);
 }
+
 void	sort_small_stack(int stack_size, t_stack **a, t_stack **b)
 {
 	print_stacks(*a, *b);
-	printf("************************");
+	printf("************************\n");
 	if (stack_size == 3)
 		sort_3_stack(a);
 	else if (stack_size == 4)

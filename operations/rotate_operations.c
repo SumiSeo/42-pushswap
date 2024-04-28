@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:17:57 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/25 16:30:48 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/26 11:47:14 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ra(t_stack **a)
 {
 	int	head_data;
 
-	printf("ra CALLED\n");
+	printf("ra\n");
 	while (!a || !(*a) || !(*a)->next)
 		return ;
 	if (*a)
@@ -31,7 +31,7 @@ void	rb(t_stack **b)
 {
 	int	head_data;
 
-	printf("rb CALLED\n");
+	printf("rb\n");
 	while (!b || !(*b) || !(*b)->next)
 		return ;
 	if (*b)
@@ -47,7 +47,7 @@ void	rr(t_stack **a, t_stack **b)
 	int	a_data;
 	int	b_data;
 
-	printf("rr CALLED\n");
+	printf("rr\n");
 	while (!a || !(*a) || !(*a)->next)
 		return ;
 	if (*a)
