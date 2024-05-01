@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   control_error.c                                    :+:      :+:    :+:   */
+/*   sort_4_parse.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/26 15:24:44 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/01 16:32:13 by sumseo           ###   ########.fr       */
+/*   Created: 2024/05/01 16:20:44 by sumseo            #+#    #+#             */
+/*   Updated: 2024/05/01 16:34:00 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	exit_program(char **array, char *err_msg)
+t_stack	*sort_4_stack(t_stack **a, t_stack **b)
 {
-	if (array)
-	{
-		free_array(array);
-	}
-	printf("%s", err_msg);
-	exit(EXIT_FAILURE);
-}
+	int     min;
+	t_stack *temp;
 
-void	free_array(char **line)
-{
-	int	i;
-
-	i = 0;
-	while (line[i])
+	temp = *a;
+	min = find_min_stack(a);
+	while (temp)
 	{
-		free(line[i]);
-		i++;
+		if (temp->data == min)
+		{
+			ft_stackadd_front(b, ft_stack_new(temp->data));
+			ft_stackremove_one(a, min);
+			sort_3_stack(a);
+			pa(a, b);
+			break ;
+		}
+		temp = temp->next;
 	}
-	free(line);
+	return (*a);
 }

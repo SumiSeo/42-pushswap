@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:04:46 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/28 18:44:10 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/01 16:27:22 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@
 typedef struct s_stack
 {
 	int				data;
+	int				equivalent_data;
 	struct s_stack	*next;
+
 }					t_stack;
 
 void				exit_program(char **array, char *err_msg);
@@ -63,5 +65,8 @@ void				ft_stackremove_first_one(t_stack **stack);
 void				sort_3_stack_util(t_stack **a, int check);
 int					find_min_stack(t_stack **a);
 void				sort_big_stack(int stack_size, t_stack **a, t_stack **b);
+void				assign_radix_index(int stack_size, t_stack **a);
+int					compare_and_swap(int data1, int data2);
+void				init_index(t_stack **a);
 
 #endif

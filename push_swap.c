@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:06:16 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/28 18:42:32 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/04/28 23:02:31 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 void	parse_stack_argv(t_stack *a)
 {
-	int		i;
 	t_stack	*current;
 
 	if (a == NULL)
 		exit_program(NULL, "Stack is empty");
-	i = 0;
 	while (a)
 	{
 		current = a->next;
@@ -83,6 +81,7 @@ t_stack	*create_stack_argv(int argc, char **argv, t_stack *a)
 			if (argv[i][0] >= 'a' && argv[i][0] <= 'z')
 				exit_program(NULL, "There is CHAR type in arguments");
 			converted_int = ft_atoi(argv[i]);
+			printf("converted int %d\n", converted_int);
 			ft_stackadd_back(&a, ft_stack_new(converted_int));
 			i++;
 		}
@@ -109,5 +108,6 @@ int	main(int argc, char **argv)
 		sort_small_stack(stack_size, &a, &b);
 	else
 		sort_big_stack(stack_size, &a, &b);
+	print_stacks(a, b);
 	return (1);
 }

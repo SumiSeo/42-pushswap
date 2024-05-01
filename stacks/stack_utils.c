@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:33:37 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/26 11:53:51 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/01 16:37:40 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,37 +47,42 @@ t_stack	*ft_stack_last(t_stack *stack)
 	return (stack);
 }
 
-bool	is_stack_ordered(t_stack *a)
+void	print_stack(t_stack **a)
 {
-	t_stack	*current;
-	int		next_data;
-	int		current_data;
-
-	if (a == NULL)
-		return (true);
-	current = a;
-	while (current->next != NULL)
+	printf("***********************\n");
+	while (a && (*a))
 	{
-		current_data = current->data;
-		next_data = current->next->data;
-		if (current_data >= next_data)
-			return (false);
-		current = current->next;
+		printf("current value: %d", (*a)->data);
+		if ((*a)->next)
+			printf(", next: %d\n", (*a)->next->data);
+		else
+			printf(", next: NULL\n");
+		*a = (*a)->next;
 	}
-	return (true);
+	printf("***********************\n");
 }
 
-void	sort_3_stack_util(t_stack **a, int check)
+void	print_stacks(t_stack *a, t_stack *b)
 {
-	if (check == 1)
+	printf("***********************\n");
+	while (a || b)
 	{
-		ra(a);
-		sa(a);
-		rra(a);
+		if (a && a->data)
+		{
+			printf("%d(%d)    ", a->data, a->equivalent_data);
+			a = a->next;
+		}
+		else
+			printf("     ");
+		if (b && b->data)
+		{
+			printf("%d(%d)    ", b->data, b->equivalent_data);
+			b = b->next;
+		}
+		else
+			printf("     ");
+		printf("\n");
 	}
-	else
-	{
-		sa(a);
-		rra(a);
-	}
+	printf("__  __\n");
+	printf("a   b\n\n");
 }
