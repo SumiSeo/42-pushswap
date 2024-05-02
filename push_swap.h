@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:04:46 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/01 16:27:22 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/02 00:07:33 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_stack
 void				exit_program(char **array, char *err_msg);
 t_stack				*create_stack_argv(int argc, char **argv, t_stack *a);
 t_stack				*ft_stack_new(int data);
-void				ft_stackadd_back(t_stack **stacks, t_stack *stack);
+void				ft_stackadd_back(t_stack **stacks, t_stack *new);
 void				parse_stack_argv(t_stack *a);
 void				ft_stack_free(char **line);
 void				free_array(char **line);
@@ -68,5 +68,8 @@ void				sort_big_stack(int stack_size, t_stack **a, t_stack **b);
 void				assign_radix_index(int stack_size, t_stack **a);
 int					compare_and_swap(int data1, int data2);
 void				init_index(t_stack **a);
+void				ft_stackadd_check(t_stack **stack, int data);
+t_stack				*ft_stack_new_equiv(int data, int equiv);
+void				assign_equivalent(t_stack **stack);
 
 #endif

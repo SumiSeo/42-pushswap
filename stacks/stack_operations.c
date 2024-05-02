@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:27:55 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/28 18:48:14 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/02 01:46:35 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	ft_stackremove_one(t_stack **stack, int num)
 	{
 		if (current->data == num)
 		{
-			printf("Found match: num = %d\n", num);
 			if (prev == NULL)
 				*stack = current->next;
 			else
