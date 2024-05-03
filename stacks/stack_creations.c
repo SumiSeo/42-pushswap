@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 18:47:57 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/02 02:05:00 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/02 02:08:55 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,46 +86,6 @@ void	ft_stackadd_check(t_stack **stack, int data)
 	(void)stack;
 	(void)data;
 }
-
-// void	assign_equivalent(t_stack **stack)
-// {
-// 	t_stack	*tmp;
-// 	int		stack_size;
-// 	int		i;
-// 	int		equiv[stack_size];
-// 	int		j;
-// 	int		min;
-
-// 	tmp = *stack;
-// 	stack_size = ft_stack_size(tmp);
-// 	i = 0;
-// 	while (i < stack_size)
-// 	{
-// 		equiv[i] = -1;
-// 		printf("index %d\n", equiv[i]);
-// 		i++;
-// 	}
-// 	i = 1;
-// 	j = 0;
-// 	while (tmp)
-// 	{
-// 		min = find_min_stack(&tmp);
-// 		if (min == tmp->data)
-// 		{
-// 			ft_stackremove_one(&tmp, min);
-// 			printf("%d \n", j);
-// 			i++;
-// 			equiv[j] = i;
-// 		}
-// 		j++;
-// 		tmp = tmp->next;
-// 	}
-// 	while (i < stack_size)
-// 	{
-// 		printf("index %d\n", equiv[i]);
-// 		i++;
-// 	}
-// }
 
 // void	ft_stackadd_back(t_stack **stack, t_stack *new)
 // {

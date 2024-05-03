@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:33:37 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/01 16:37:40 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/03 14:39:43 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,25 +62,35 @@ void	print_stack(t_stack **a)
 	printf("***********************\n");
 }
 
-void	print_stacks(t_stack *a, t_stack *b)
+void	print_stacks(t_stack **a, t_stack **b)
 {
+	t_stack	*current_a;
+	t_stack	*current_b;
+
 	printf("***********************\n");
-	while (a || b)
+	current_a = *a;
+	current_b = *b;
+	while ((a && (*a)) || (b && (*b)))
 	{
-		if (a && a->data)
+		if ((*a)->data)
 		{
-			printf("%d(%d)    ", a->data, a->equivalent_data);
-			a = a->next;
+			printf("%d(%d)    ", (*a)->data, (*a)->equivalent_data);
 		}
 		else
-			printf("     ");
-		if (b && b->data)
 		{
-			printf("%d(%d)    ", b->data, b->equivalent_data);
-			b = b->next;
-		}
-		else
 			printf("     ");
+		}
+		*a = (*a)->next;
+		// if ((*b)->data)
+		// {
+		// 	printf("%d(%d)    ", (*b)->data, (*b)->equivalent_data);
+		// 	// *b = (*b)->next;
+		// }
+		// else
+		// {
+		// 	printf("     ");
+		// }
+		// *b = (*b)->next;
 		printf("\n");
 	}
 	printf("__  __\n");

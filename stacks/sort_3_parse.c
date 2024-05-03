@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 16:20:22 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/01 16:34:23 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/03 14:11:02 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	sort_3_stack_util(t_stack **a, int check)
 
 t_stack	*sort_3_stack(t_stack **a)
 {
-	t_stack     *current;
+	t_stack	*current;
 
 	current = *a;
 	if (current->data > current->next->data

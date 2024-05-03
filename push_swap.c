@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:06:16 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/02 02:05:32 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/03 14:37:56 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,6 @@ int	main(int argc, char **argv)
 		sort_small_stack(stack_size, &a, &b);
 	else
 		sort_big_stack(stack_size, &a, &b);
-	print_stacks(a, b);
+	print_stacks(&a, &b);
 	return (1);
 }
