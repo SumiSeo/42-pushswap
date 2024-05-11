@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 20:02:14 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/26 11:46:51 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/11 23:46:57 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,54 +14,43 @@
 
 void	rra(t_stack **a)
 {
-	int	last_data;
+	t_stack	*last_node;
 
 	printf("rra\n");
-	while (!a || !(*a) || !(*a)->next)
+	while (!a || !(*a)->next)
 		return ;
-	if (*a)
-	{
-		last_data = ft_stack_last(*a)->data;
-		ft_stackadd_front(a, ft_stack_new(last_data));
-	}
-	ft_stackremove_last_one(a);
+	last_node = ft_stack_last(*a);
+	last_node->prev->next = NULL;
+	last_node->prev = *a;
+	last_node->prev = NULL;
+	*a = last_node;
+	last_node->next->prev = last_node;
 }
 
 void	rrb(t_stack **b)
 {
-	int	last_data;
+	t_stack	*last_node;
 
 	printf("rrb\n");
-	while (!b || !(*b) || !(*b)->next)
+	while (!b || !(*b)->next)
 		return ;
-	if (*b)
-	{
-		last_data = ft_stack_last(*b)->data;
-		ft_stackadd_front(b, ft_stack_new(last_data));
-	}
-	ft_stackremove_last_one(b);
+	last_node = ft_stack_last(*b);
+	last_node->prev->next = NULL;
+	last_node->prev = *b;
+	last_node->prev = NULL;
+	*b = last_node;
+	last_node->next->prev = last_node;
 }
 
 void	rrr(t_stack **a, t_stack **b)
 {
-	int	last_a_data;
-	int	last_b_data;
-
-	printf("rrr\n");
-	while (!a || !(*a) || !(*a)->next)
-		return ;
-	if (*a)
-	{
-		last_a_data = ft_stack_last(*a)->data;
-		ft_stackadd_front(a, ft_stack_new(last_a_data));
-	}
-	ft_stackremove_last_one(a);
-	while (!b || !(*b) || !(*b)->next)
-		return ;
-	if (*b)
-	{
-		last_b_data = ft_stack_last(*b)->data;
-		ft_stackadd_front(b, ft_stack_new(last_b_data));
-	}
-	ft_stackremove_last_one(b);
+	rra(a);
+	rrb(b);
+}
+void	rev_rotate_both(t_stack **a, t_stack **b, t_stack *cheapest_node)
+{
+	while (*b != cheapest_node->target_node && *a != cheapest_node)
+		rrr(a, b);
+	current_index(*a);
+	current_index(*b);
 }

@@ -6,66 +6,64 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:27:55 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/02 01:46:35 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 00:43:50 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_stackremove_first_one(t_stack **stack)
+t_stack	*get_cheapest(t_stack *stack)
 {
-	t_stack	*current;
-
-	if (*stack == NULL)
-		return ;
-	else
+	if (!stack)
+		return (NULL);
+	while (stack)
 	{
-		current = *stack;
-		*stack = current->next;
-		free(current);
+		if (stack->cheapest)
+			return (stack);
+		stack = stack->next;
 	}
+	return (NULL);
 }
-
-void	ft_stackremove_one(t_stack **stack, int num)
+void	set_target_b(t_stack *a, t_stack *b)
 {
-	t_stack	*current;
-	t_stack	*prev;
+	t_stack	*target_node;
+	t_stack	*current_a;
+	long	best_match_index;
 
-	current = *stack;
-	prev = NULL;
-	while (current != NULL)
+	while (b)
 	{
-		if (current->data == num)
+		best_match_index = LONG_MAX;
+		current_a = a;
+		while (current_a)
 		{
-			if (prev == NULL)
-				*stack = current->next;
-			else
-				prev->next = current->next;
-			free(current);
-			return ;
+			if (current_a->data > b->data && current_a->data < best_match_index)
+			{
+				best_match_index = current_a->data;
+				target_node = current_a;
+			}
+			current_a = current_a->next;
 		}
-		prev = current;
-		current = current->next;
+		if (best_match_index == LONG_MAX)
+			b->target_node = find_min_stack(a);
+		else
+			b->target_node = target_node;
+		b = b->next;
 	}
 }
 
-void	ft_stackremove_last_one(t_stack **stack)
+void	move_b_to_a(t_stack **a, t_stack **b)
 {
-	t_stack	*current;
-	t_stack	*prev;
-
-	if (*stack == NULL || (*stack)->next == NULL)
-		return ;
-	current = *stack;
-	prev = NULL;
-	while (current->next != NULL)
-	{
-		prev = current;
-		current = current->next;
-	}
-	free(current);
-	if (prev != NULL)
-		prev->next = NULL;
-	else
-		*stack = NULL;
+	prep_for_push(a, (*b)->target_node, 'a');
+	pa(a, b);
 }
+
+void	min_on_top(t_stack **a)
+{
+	while ((*a)->data != find_min_stack(*a)->data)
+	{
+		if (find_min_stack(*a)->above_median)
+			ra(a);
+		else
+			rra(a);
+	}
+};

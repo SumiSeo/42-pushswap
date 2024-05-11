@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:06:16 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/03 14:37:56 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 00:29:32 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,9 @@ void	parse_stack_argv(t_stack *a)
 
 t_stack	*create_stack_two_args(char **converted_argv, t_stack *a)
 {
-	int		converted_int;
-	int		j;
-	t_stack	*new_elem;
-	int		i;
+	int	converted_int;
+	int	j;
+	int	i;
 
 	i = 0;
 	while (converted_argv[i])
@@ -51,8 +50,7 @@ t_stack	*create_stack_two_args(char **converted_argv, t_stack *a)
 			else
 			{
 				converted_int = ft_atoi(converted_argv[i]);
-				new_elem = ft_stack_new(converted_int);
-				ft_stackadd_back(&a, new_elem);
+				ft_stackadd_back(&a, converted_int);
 			}
 			j++;
 		}
@@ -81,7 +79,7 @@ t_stack	*create_stack_argv(int argc, char **argv, t_stack *a)
 			if (argv[i][0] >= 'a' && argv[i][0] <= 'z')
 				exit_program(NULL, "There is CHAR type in arguments");
 			converted_int = ft_atoi(argv[i]);
-			ft_stackadd_back(&a, ft_stack_new(converted_int));
+			ft_stackadd_back(&a, converted_int);
 			i++;
 		}
 	}
@@ -97,16 +95,16 @@ int	main(int argc, char **argv)
 
 	a = NULL;
 	b = NULL;
-	if (argc == 1)
+	if (argc == 1 || (argc == 2 && !argv[1][0]))
 		exit_program(NULL, "Wrong argument number!");
 	a = create_stack_argv(argc, argv, a);
 	if (is_stack_ordered(a))
 		exit_program(NULL, "Is is already correctlly ordered");
 	stack_size = ft_stack_size(a);
-	if (stack_size <= 5)
-		sort_small_stack(stack_size, &a, &b);
+	if (stack_size == 3)
+		sort_small_stack(stack_size, &a);
 	else
 		sort_big_stack(stack_size, &a, &b);
-	print_stacks(&a, &b);
+	print_stacks(&a, 'a');
 	return (1);
 }

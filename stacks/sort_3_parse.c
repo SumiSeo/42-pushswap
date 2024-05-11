@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 16:20:22 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/03 14:11:02 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/11 22:31:00 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,30 +27,35 @@ void	sort_3_stack_util(t_stack **a, int check)
 	}
 }
 
-t_stack	*sort_3_stack(t_stack **a)
+void	sort_3_stack(t_stack **a)
 {
-	t_stack	*current;
+	t_stack	*biggest_node;
 
-	current = *a;
-	if (current->data > current->next->data
-		&& current->next->data > current->next->next->data)
-		sort_3_stack_util(a, 2);
-	else if (current->data < current->next->data
-		&& current->next->next->data < current->next->data
-		&& current->next->next->data < current->data)
-		rra(a);
-	else if (current->data > current->next->data
-		&& current->next->data < current->next->next->data
-		&& current->data < current->next->next->data)
-		sa(a);
-	else if (current->data > current->next->data
-		&& current->next->data < current->next->next->data)
+	biggest_node = find_max_stack(*a);
+	if (biggest_node == *a)
 		ra(a);
-	else if ((current->data < current->next->data
-			&& current->next->data > current->next->next->data))
-		sort_3_stack_util(a, 1);
-	else if (current->data < current->next->data
-		&& current->next->data > current->next->next->data)
-		sort_3_stack_util(a, 1);
-	return (*a);
+	else if ((*a)->next == biggest_node)
+		rra(a);
+	if ((*a)->data > (*a)->next->data)
+		sa(a);
 }
+
+// t_stack	*find_max_stack(t_stack *stack)
+// {
+// 	long max;
+// 	t_stack *max_node;
+
+// 	if (!stack)
+// 		return (NULL);
+// 	max = LONG_MIN;
+// 	while (stack)
+// 	{
+// 		if (stack->data > max)
+// 		{
+// 			max = stack->data;
+// 			max_node = stack;
+// 		}
+// 		stack = stack->next;
+// 	}
+// 	return (max_node);
+// }

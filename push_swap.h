@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:04:46 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/03 14:21:05 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 00:28:33 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,45 @@
 typedef struct s_stack
 {
 	int				data;
-	int				equivalent_data;
-	struct s_stack	*next;
+	int				index;
+	int				push_cost;
+	bool			above_median;
+	bool			cheapest;
 
+	struct s_stack	*next;
+	struct s_stack	*prev;
+	struct s_stack	*target_node;
 }					t_stack;
 
+// handle errors
 void				exit_program(char **array, char *err_msg);
-t_stack				*create_stack_argv(int argc, char **argv, t_stack *a);
-t_stack				*ft_stack_new(int data);
-void				ft_stackadd_back(t_stack **stacks, t_stack *new);
-void				parse_stack_argv(t_stack *a);
 void				ft_stack_free(char **line);
 void				free_array(char **line);
+// stack initiation
+t_stack				*create_stack_argv(int argc, char **argv, t_stack *a);
+t_stack				*create_stack_two_args(char **converted_argv, t_stack *a);
+// node initiation
+t_stack				*ft_stack_new(int data);
+
+// stack utils
+void				ft_stackadd_back(t_stack **stacks, int data);
+void				parse_stack_argv(t_stack *a);
 void				print_stack(t_stack **a);
 int					ft_stack_size(t_stack *stack);
-t_stack				*create_stack_two_args(char **converted_argv, t_stack *a);
 bool				is_stack_ordered(t_stack *a);
-void				sort_small_stack(int stack_size, t_stack **a, t_stack **b);
-t_stack				*sort_3_stack(t_stack **a);
-t_stack				*sort_4_stack(t_stack **a, t_stack **b);
-t_stack				*sort_5_stack(t_stack **a, t_stack **b);
+void				sort_small_stack(int stack_size, t_stack **a);
+void				sort_3_stack(t_stack **a);
+void				print_stacks(t_stack **a, char c);
+void				ft_stackadd_front(t_stack **stack, t_stack *new);
+void				ft_stackremove_one(t_stack **stack, int num);
+t_stack				*ft_stack_last(t_stack *stack);
+void				ft_stackremove_last_one(t_stack **stack);
+void				ft_stackremove_first_one(t_stack **stack);
+void				sort_3_stack_util(t_stack **a, int check);
+t_stack				*find_min_stack(t_stack *stack);
+void				sort_big_stack(int stack_size, t_stack **a, t_stack **b);
+
+// commands(opeartions)
 void				pa(t_stack **a, t_stack **b);
 void				pb(t_stack **a, t_stack **b);
 void				ra(t_stack **a);
@@ -56,20 +75,26 @@ void				rrr(t_stack **a, t_stack **b);
 void				sa(t_stack **a);
 void				sb(t_stack **b);
 void				ss(t_stack **a, t_stack **b);
-void				print_stacks(t_stack **a, t_stack **b);
-void				ft_stackadd_front(t_stack **stack, t_stack *new);
-void				ft_stackremove_one(t_stack **stack, int num);
-t_stack				*ft_stack_last(t_stack *stack);
-void				ft_stackremove_last_one(t_stack **stack);
-void				ft_stackremove_first_one(t_stack **stack);
-void				sort_3_stack_util(t_stack **a, int check);
-int					find_min_stack(t_stack **a);
-void				sort_big_stack(int stack_size, t_stack **a, t_stack **b);
-void				assign_radix_index(int stack_size, t_stack **a);
-int					compare_and_swap(int data1, int data2);
-void				init_index(t_stack **a);
-void				ft_stackadd_check(t_stack **stack, int data);
-t_stack				*ft_stack_new_equiv(int data, int equiv);
-void				assign_equivalent(t_stack **stack);
+void				push(t_stack **dst, t_stack **src);
+void				prep_for_push(t_stack **stack, t_stack *top_node,
+						char stack_name);
+void				rotate_both(t_stack **a, t_stack **b,
+						t_stack *cheapst_node);
+void				rev_rotate_both(t_stack **a, t_stack **b,
+						t_stack *cheapest_node);
+
+// Algorithms
+void				init_nodes_a(t_stack *a, t_stack *b);
+void				current_index(t_stack *stack);
+void				set_target_a(t_stack *a, t_stack *b);
+void				cost_analysis_a(t_stack *a, t_stack *b);
+void				set_cheapest(t_stack *stack);
+t_stack				*find_max_stack(t_stack *stack);
+void				move_a_to_b(t_stack **a, t_stack **b);
+t_stack				*get_cheapest(t_stack *stack);
+void				init_nodes_b(t_stack *a, t_stack *b);
+void				set_target_b(t_stack *a, t_stack *b);
+void				move_b_to_a(t_stack **a, t_stack **b);
+void				min_on_top(t_stack **a);
 
 #endif

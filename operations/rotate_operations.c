@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:17:57 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/26 11:47:14 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 00:11:47 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,54 +14,42 @@
 
 void	ra(t_stack **a)
 {
-	int	head_data;
+	t_stack	*last_node;
 
-	printf("ra\n");
-	while (!a || !(*a) || !(*a)->next)
+	if (!*a || !(*a)->next)
 		return ;
-	if (*a)
-	{
-		head_data = (*a)->data;
-		ft_stackadd_back(a, ft_stack_new(head_data));
-	}
+	last_node = ft_stack_last(*a);
+	last_node->next = *a;
 	*a = (*a)->next;
+	(*a)->prev = NULL;
+	last_node->next->prev = last_node;
+	last_node->next->next = NULL;
 }
 
 void	rb(t_stack **b)
 {
-	int	head_data;
+	t_stack	*last_node;
 
-	printf("rb\n");
-	while (!b || !(*b) || !(*b)->next)
+	if (!*b || !(*b)->next)
 		return ;
-	if (*b)
-	{
-		head_data = (*b)->data;
-		ft_stackadd_back(b, ft_stack_new(head_data));
-	}
+	last_node = ft_stack_last(*b);
+	last_node->next = *b;
 	*b = (*b)->next;
+	(*b)->prev = NULL;
+	last_node->next->prev = last_node;
+	last_node->next->next = NULL;
 }
 
 void	rr(t_stack **a, t_stack **b)
 {
-	int	a_data;
-	int	b_data;
+	ra(a);
+	rb(b);
+}
 
-	printf("rr\n");
-	while (!a || !(*a) || !(*a)->next)
-		return ;
-	if (*a)
-	{
-		a_data = (*a)->data;
-		ft_stackadd_back(a, ft_stack_new(a_data));
-	}
-	*a = (*a)->next;
-	while (!b || !(*b) || !(*b)->next)
-		return ;
-	if (*b)
-	{
-		b_data = (*b)->data;
-		ft_stackadd_back(b, ft_stack_new(b_data));
-	}
-	*b = (*b)->next;
+void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapst_node)
+{
+	while (*b != cheapst_node->target_node && *a != cheapst_node)
+		rr(a, b);
+	current_index(*a);
+	current_index(*b);
 }

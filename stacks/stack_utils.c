@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 15:33:37 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/03 14:39:43 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 00:11:00 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_stack	*ft_stack_last(t_stack *stack)
 {
 	if (!stack)
 		return (NULL);
-	while (stack->next != NULL)
+	while (stack->next)
 		stack = stack->next;
 	return (stack);
 }
@@ -57,42 +57,38 @@ void	print_stack(t_stack **a)
 			printf(", next: %d\n", (*a)->next->data);
 		else
 			printf(", next: NULL\n");
+		if ((*a)->prev)
+			printf(", prev: %d\n", (*a)->prev->data);
+		else
+			printf(", prev: NULL\n");
 		*a = (*a)->next;
 	}
 	printf("***********************\n");
 }
 
-void	print_stacks(t_stack **a, t_stack **b)
+void	print_stacks(t_stack **a, char c)
 {
 	t_stack	*current_a;
-	t_stack	*current_b;
 
 	printf("***********************\n");
 	current_a = *a;
-	current_b = *b;
-	while ((a && (*a)) || (b && (*b)))
+	while ((a && (*a)))
 	{
 		if ((*a)->data)
 		{
-			printf("%d(%d)    ", (*a)->data, (*a)->equivalent_data);
+			printf("%d    ", (*a)->data);
+		}
+		else if ((*a)->data == 0)
+		{
+			printf("%c   ", '0');
 		}
 		else
 		{
 			printf("     ");
 		}
 		*a = (*a)->next;
-		// if ((*b)->data)
-		// {
-		// 	printf("%d(%d)    ", (*b)->data, (*b)->equivalent_data);
-		// 	// *b = (*b)->next;
-		// }
-		// else
-		// {
-		// 	printf("     ");
-		// }
-		// *b = (*b)->next;
 		printf("\n");
 	}
-	printf("__  __\n");
-	printf("a   b\n\n");
+	printf("__ \n");
+	printf("%c\n\n", c);
 }
