@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:04:46 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/12 01:32:35 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 01:44:10 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void				rotate_both(t_stack **a, t_stack **b,
 						t_stack *cheapst_node);
 void				rev_rotate_both(t_stack **a, t_stack **b,
 						t_stack *cheapest_node);
+void				free_stack(t_stack **stack);
 
 // Algorithms
 void				init_nodes_a(t_stack *a, t_stack *b);
