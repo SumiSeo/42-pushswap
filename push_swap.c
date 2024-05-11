@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 15:06:16 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/12 01:21:05 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 01:31:57 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,6 @@ int	main(int argc, char **argv)
 	stack_size = ft_stack_size(a);
 	if (stack_size == 3)
 		sort_small_stack(stack_size, &a);
-	else if (stack_size == 4)
-		sort_4_stack(&a, &b);
 	else
 		sort_big_stack(stack_size, &a, &b);
 	print_stacks(&a, 'a');

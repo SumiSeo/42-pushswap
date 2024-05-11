@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 18:31:18 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/12 00:48:52 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 01:31:35 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 void	sort_big_stack(int stack_size, t_stack **a, t_stack **b)
 {
-	if (stack_size-- > 3 && !is_stack_ordered(*a))
+	if (stack_size == 4)
 		pb(a, b);
-	if (stack_size-- > 3 && !is_stack_ordered(*a))
-		pb(a, b);
+	else
+	{
+		if (stack_size-- > 3 && !is_stack_ordered(*a))
+			pb(a, b);
+		if (stack_size-- > 3 && !is_stack_ordered(*a))
+			pb(a, b);
+	}
 	while (stack_size-- > 3 && !is_stack_ordered(*a))
 	{
 		init_nodes_a(*a, *b);
