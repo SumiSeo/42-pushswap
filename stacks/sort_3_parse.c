@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 16:20:22 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/12 01:23:41 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 20:20:17 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sort_3_stack(t_stack **a)
 {
-	t_stack *biggest_node;
+	t_stack		*biggest_node;
 
 	biggest_node = find_max_stack(*a);
 	if (biggest_node == *a)

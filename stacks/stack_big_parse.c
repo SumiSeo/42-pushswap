@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 18:31:18 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/12 01:31:35 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 20:19:29 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	sort_big_stack(int stack_size, t_stack **a, t_stack **b)
 	current_index(*a);
 	min_on_top(a);
 }
+
 void	init_nodes_a(t_stack *a, t_stack *b)
 {
 	current_index(a);
@@ -75,8 +76,8 @@ t_stack	*find_min_stack(t_stack *stack)
 
 t_stack	*find_max_stack(t_stack *stack)
 {
-	long max;
-	t_stack *max_node;
+	long		max;
+	t_stack		*max_node;
 
 	if (!stack)
 		return (NULL);

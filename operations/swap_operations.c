@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:17:50 by sumseo            #+#    #+#             */
-/*   Updated: 2024/04/26 11:47:26 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 18:59:51 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sa(t_stack **a)
 {
 	int	tmp_data;
 
-	printf("sa\n");
+	write(1, "sa\n", 3);
 	if (!a || !(*a) || !(*a)->next)
 		return ;
 	if (a)
@@ -31,7 +31,7 @@ void	sb(t_stack **b)
 {
 	int	tmp_data;
 
-	printf("sb\n");
+	write(1, "sb\n", 3);
 	if (!b || !(*b) || !(*b)->next)
 		return ;
 	if (b)
@@ -47,7 +47,7 @@ void	ss(t_stack **a, t_stack **b)
 	int	tmp_data;
 	int	tmp_data2;
 
-	printf("ss\n");
+	write(1, "s\ns", 3);
 	if (!a || !(*a) || !(*a)->next)
 		return ;
 	if (a)

@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:18:04 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/12 02:01:23 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 20:23:20 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	pa(t_stack **a, t_stack **b)
 {
-	printf("pa\n");
+	write(1, "pa\n", 3);
 	push(a, b);
 }
 
 void	pb(t_stack **a, t_stack **b)
 {
-	printf("pb\n");
+	write(1, "pb\n", 3);
 	push(b, a);
 }
 

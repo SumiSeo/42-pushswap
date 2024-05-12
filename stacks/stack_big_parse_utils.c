@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 20:32:15 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/12 02:17:17 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 19:03:36 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	move_a_to_b(t_stack **a, t_stack **b)
 	prep_for_push(b, cheapest_node->target_node, 'b');
 	pb(a, b);
 }
+
 void	current_index(t_stack *stack)
 {
 	int	i;
@@ -73,6 +74,7 @@ void	set_target_a(t_stack *a, t_stack *b)
 		a = a->next;
 	}
 }
+
 void	cost_analysis_a(t_stack *a, t_stack *b)
 {
 	int	len_a;
@@ -95,8 +97,8 @@ void	cost_analysis_a(t_stack *a, t_stack *b)
 
 void	set_cheapest(t_stack *stack)
 {
-	long chepest_value;
-	t_stack *chepest_node;
+	long		chepest_value;
+	t_stack		*chepest_node;
 
 	if (!stack)
 		return ;

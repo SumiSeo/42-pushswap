@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:17:57 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/12 02:03:22 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 20:23:27 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,20 @@ void	rotate(t_stack **src)
 void	ra(t_stack **a)
 {
 	rotate(a);
-	printf("ra\n");
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_stack **b)
 {
 	rotate(b);
-	printf("rb\n");
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_stack **a, t_stack **b)
 {
 	rotate(a);
 	rotate(b);
-	printf("rr\n");
+	write(1, "rr\n", 3);
 }
 
 void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapst_node)

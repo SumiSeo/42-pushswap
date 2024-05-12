@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 16:27:55 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/12 00:45:36 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 20:18:30 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ t_stack	*get_cheapest(t_stack *stack)
 	}
 	return (NULL);
 }
+
 void	set_target_b(t_stack *a, t_stack *b)
 {
 	t_stack	*target_node;
@@ -66,4 +67,4 @@ void	min_on_top(t_stack **a)
 		else
 			rra(a);
 	}
-};
+}
