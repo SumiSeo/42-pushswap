@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 14:14:11 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/12 20:39:02 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 20:41:52 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@ bool	is_stack_ordered(t_stack *a)
 	}
 	return (true);
 }
+
 t_stack	*check_arg_is_range(int i, int point, t_stack *a, char **converted_argv)
 {
-	int converted_int;
+	int		converted_int;
 
 	converted_int = ft_atoi(converted_argv[i], &point);
 	if (point == 2)
