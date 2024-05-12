@@ -6,7 +6,7 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 20:32:15 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/12 00:39:07 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 02:17:17 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	current_index(t_stack *stack)
 	i = 0;
 	if (!stack)
 		return ;
-	median = ft_stack_size(stack);
+	median = ft_stack_size(stack) / 2;
 	while (stack)
 	{
 		stack->index = i;

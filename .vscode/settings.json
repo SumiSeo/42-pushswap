@@ -3,6 +3,7 @@
         "type_traits": "c",
         "unistd.h": "c",
         "push_swap.h": "c",
-        "limits": "c"
+        "limits": "c",
+        "random": "c"
     }
 }

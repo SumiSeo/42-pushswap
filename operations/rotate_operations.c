@@ -6,46 +6,43 @@
 /*   By: sumseo <sumseo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:17:57 by sumseo            #+#    #+#             */
-/*   Updated: 2024/05/12 01:42:05 by sumseo           ###   ########.fr       */
+/*   Updated: 2024/05/12 02:03:22 by sumseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ra(t_stack **a)
+void	rotate(t_stack **src)
 {
 	t_stack	*last_node;
 
-	printf("ra\n");
-	if (!*a || !(*a)->next)
+	if (!*src || !(*src)->next)
 		return ;
-	last_node = ft_stack_last(*a);
-	last_node->next = *a;
-	*a = (*a)->next;
-	(*a)->prev = NULL;
+	last_node = ft_stack_last(*src);
+	last_node->next = *src;
+	*src = (*src)->next;
+	(*src)->prev = NULL;
 	last_node->next->prev = last_node;
 	last_node->next->next = NULL;
+}
+
+void	ra(t_stack **a)
+{
+	rotate(a);
+	printf("ra\n");
 }
 
 void	rb(t_stack **b)
 {
-	t_stack	*last_node;
-
+	rotate(b);
 	printf("rb\n");
-	if (!*b || !(*b)->next)
-		return ;
-	last_node = ft_stack_last(*b);
-	last_node->next = *b;
-	*b = (*b)->next;
-	(*b)->prev = NULL;
-	last_node->next->prev = last_node;
-	last_node->next->next = NULL;
 }
 
 void	rr(t_stack **a, t_stack **b)
 {
-	ra(a);
-	rb(b);
+	rotate(a);
+	rotate(b);
+	printf("rr\n");
 }
 
 void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapst_node)
